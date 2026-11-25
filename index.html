@@ -83,7 +83,6 @@ h2 { font-size: clamp(30px, 4.4vw, 46px); line-height: 1.04; letter-spacing: -.0
 @media (max-width: 520px) {
   .join { flex-wrap: wrap; border-radius: 20px; }
   .join input { padding: 10px 12px; }
-  .join .name { flex: 1 1 100%; border-right: 0; border-bottom: 1px solid var(--line); }
   .join .btn { flex: 1 1 100%; }
 }
 .join-slot { width: 100%; max-width: 520px; min-width: 0; flex: 1 1 280px; }
@@ -186,7 +185,7 @@ pre.snippet .k2 { color: #9DB0FF; }
 .final .join .btn { background: #F4F4F7; color: #0B0B0E; }
 .final .joined { background: #16171D; box-shadow: inset 0 0 0 1px #2A2B35; color: #fff; }
 .final .join-note { color: #A6A9B8; }
-.final-pill { position: absolute; right: clamp(-60px, -2vw, 0px); top: 40px; width: 300px; height: 64px; border-radius: 32px; background: #000; box-shadow: inset 0 0 0 1px #24252D, 0 30px 60px -20px rgba(143,164,255,.35); display: flex; align-items: center; gap: 12px; padding: 0 18px; transform: rotate(-6deg); }
+.final-pill { position: absolute; right: 48px; top: 48px; width: 300px; height: 64px; border-radius: 32px; background: #000; box-shadow: inset 0 0 0 1px #24252D, 0 30px 60px -20px rgba(143,164,255,.35); display: flex; align-items: center; gap: 12px; padding: 0 18px; transform: rotate(-6deg); }
 .final-pill i { width: 9px; height: 9px; border-radius: 50%; background: #4FE0A2; box-shadow: 0 0 0 4px rgba(79,224,162,.18); }
 .final-pill span { font: 600 14px var(--body); color: #fff; }
 .final-pill small { font-size: 12.5px; color: #8A8D9C; }
@@ -352,7 +351,7 @@ footer { padding-block: 36px 48px; display: flex; justify-content: space-between
   <div class="wrap">
     <div class="final">
       <div class="final-pill" aria-hidden="true"><i></i><span>Islet is on its way</span><small>now</small></div>
-      <span class="kicker" style="color:#8A8D9C">Now on the Chrome Web Store</span>
+      <span class="kicker" style="color:#8A8D9C">For Chrome, Edge, Brave and Arc</span>
       <h2>Get Islet in your inbox.</h2>
       <p>Leave your email and the install link arrives right away, plus one short check-in a few days later. Nothing else.</p>
       <div class="join-slot" data-slot="final"></div>
@@ -448,10 +447,8 @@ footer { padding-block: 36px 48px; display: flex; justify-content: space-between
       if (slot.querySelector('form')) return;
       const id = slot.dataset.slot;
       slot.innerHTML = `<form class="join" novalidate>
-        <label for="name-${id}" class="vh">First name</label>
-        <input id="name-${id}" class="name" type="text" autocomplete="given-name" placeholder="Your first name" maxlength="40">
         <label for="email-${id}" class="vh">Email</label>
-        <input id="email-${id}" class="email" type="email" inputmode="email" autocomplete="email" placeholder="Your email address" required>
+        <input id="email-${id}" class="email" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" required>
         <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
         <button class="btn" type="submit">Send me Islet</button></form><p class="join-note" role="status"></p>`;
       slot.querySelector('form').addEventListener('submit', (e) => onJoin(e, slot));
@@ -462,14 +459,10 @@ footer { padding-block: 36px 48px; display: flex; justify-content: space-between
     e.preventDefault();
     const f = slot.querySelector('form'), note = slot.querySelector('.join-note'), btn = f.querySelector('button');
     let email = f.querySelector('.email').value.trim().toLowerCase();
-    let name = f.querySelector('.name').value.trim();
-    // Typed the email into the name box? Use it.
-    if (!EMAIL.test(email) && EMAIL.test(name.toLowerCase())) { email = name.toLowerCase(); name = ''; f.querySelector('.email').value = email; f.querySelector('.name').value = ''; }
-    // Typed only the part before @ in one box and "@gmail.com" in the other? Join them.
-    if (!EMAIL.test(email) && /^@/.test(email) && /^[^\s@]+$/.test(name)) { email = (name + email).toLowerCase(); name = ''; f.querySelector('.email').value = email; f.querySelector('.name').value = ''; }
+    let name = '';
     note.className = 'join-note';
-    if (!EMAIL.test(email)) { note.textContent = 'Put your email address in the second box, like name@gmail.com.'; note.classList.add('err'); f.querySelector('.email').focus(); return; }
-    if (/^PASTE_/.test(WAITLIST_URL)) { note.textContent = 'Sign-ups are not connected yet. Add your Apps Script URL to this page.'; note.classList.add('err'); return; }
+    if (!EMAIL.test(email)) { note.textContent = 'Enter your email address, like name@gmail.com.'; note.classList.add('err'); f.querySelector('.email').focus(); return; }
+    if (/^PASTE_/.test(WAITLIST_URL)) { note.textContent = 'Islet is ready for you. Opening the install page…'; setTimeout(() => { location.href = STORE_URL; }, 900); return; }
     btn.disabled = true; btn.textContent = 'Sending…';
     const body = new URLSearchParams({ email, name, source: slot.dataset.slot, ref, website: f.querySelector('.hp').value });
     let position = null;
