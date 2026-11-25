@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Islet privacy policy</title>
+<link rel="icon" href="icons/icon32.png">
+<style>
+  :root { --bg: #F1F2F5; --fg: #16171D; --sub: #5D6070; --line: #DCDEE5; --surface: #fff; font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #0B0C10; --fg: #ECEDF2; --sub: #9497A7; --line: #23242D; --surface: #14151B; color-scheme: dark; } }
+  body { margin: 0; background: var(--bg); color: var(--fg); line-height: 1.6; }
+  main { max-width: 720px; margin: 0 auto; padding: 56px 20px 72px; }
+  a { color: inherit; }
+  h1 { font-size: 40px; letter-spacing: -.03em; line-height: 1.05; margin: 0 0 8px; }
+  h2 { font-size: 20px; margin: 36px 0 8px; letter-spacing: -.01em; }
+  p, li { color: var(--sub); }
+  table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 15px; }
+  th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--fg); font-weight: 600; }
+  td:first-child { color: var(--fg); font-weight: 600; white-space: nowrap; }
+  .wrap { overflow-x: auto; }
+  .note { padding: 14px 16px; border-radius: 12px; background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); color: var(--fg); }
+</style>
+</head>
+<body>
+<main>
+  <p><a href="./">← Islet</a></p>
+  <h1>Privacy policy</h1>
+  <p>Effective November 2026. This policy covers the Islet Chrome extension.</p>
+
+  <p class="note">The short version: Islet has no servers and no analytics. Your notifications, settings and tokens stay in your own browser. We never receive, sell or share your data.</p>
+
+  <h2>What Islet handles, and where it goes</h2>
+  <div class="wrap"><table>
+    <tr><th>Data</th><th>What Islet does with it</th><th>Where it is kept</th></tr>
+    <tr><td>Notifications you create</td><td>Shows them as islands and reminders you schedule.</td><td>Your browser (chrome.storage.local)</td></tr>
+    <tr><td>Style settings</td><td>Remembers your look, colors and sounds.</td><td>chrome.storage.sync, so Chrome can sync them between your own devices</td></tr>
+    <tr><td>GitHub token (optional)</td><td>Reads your GitHub notifications and marks them read when you ask.</td><td>Your browser only. Sent only to api.github.com.</td></tr>
+    <tr><td>Gmail unread mail (optional)</td><td>Reads the sender, subject and preview of new inbox mail, using the Google session already signed in to Chrome, to show an island.</td><td>Not stored, except message IDs to avoid showing the same email twice.</td></tr>
+    <tr><td>Screen sharing (Privacy mode)</td><td>Notices only that a page started or stopped sharing your screen, so message text can be hidden while you present. Never sees or records what you share.</td><td>Only a temporary "sharing now" flag, cleared when sharing stops or Chrome closes.</td></tr>
+    <tr><td>Slack and WhatsApp Web notifications (optional)</td><td>Reads the notification those sites would show while their tab is open, to show it as an island instead.</td><td>Not stored.</td></tr>
+  </table></div>
+
+  <h2>What Islet does not do</h2>
+  <ul>
+    <li>It does not send any of your data to the developer or to any third party.</li>
+    <li>It does not use analytics, tracking or advertising.</li>
+    <li>It does not read the content of web pages, except the notifications described above on Slack and WhatsApp Web.</li>
+    <li>It does not sell or transfer your data, or use it for anything other than showing your notifications.</li>
+  </ul>
+
+  <h2>Why it asks for access to all sites</h2>
+  <p>Islet shows its island at the top of whichever tab you are looking at, so it needs to be able to draw on any page. It also needs to reach api.github.com and mail.google.com to check for new items when you turn those sources on.</p>
+
+  <h2>Your control</h2>
+  <p>Every source is off until you switch it on. Remove your GitHub token in the popup's Sources tab at any time. Uninstalling Islet deletes everything it stored.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about privacy: <span id="contact">your-email@example.com</span></p>
+</main>
+</body>
+</html>
