@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="https://maherimtiyaz.github.io/islet-site/icon128.png" alt="Islet logo" width="72">
-
 # Islet
 
 ### Notifications that drop in, then get out of the way.
@@ -9,6 +7,7 @@
 GitHub reviews, Gmail, Slack and WhatsApp as one small island at the top of whatever Chrome tab you're on.<br>
 It opens, says one thing, and tucks itself away.
 
+<a href="https://maherimtiyaz.github.io/islet-site/#demo"><b>▶ Watch the 1-minute demo</b></a> &nbsp;·&nbsp;
 <a href="https://maherimtiyaz.github.io/islet-site/install.html"><b>Install Islet</b></a> &nbsp;·&nbsp;
 <a href="https://maherimtiyaz.github.io/islet-site/"><b>Website</b></a> &nbsp;·&nbsp;
 <a href="https://maherimtiyaz.github.io/islet-site/privacy.html"><b>Privacy</b></a> &nbsp;·&nbsp;
@@ -21,10 +20,6 @@ It opens, says one thing, and tucks itself away.
 ![No servers](https://img.shields.io/badge/servers-none-4FE0A2)
 ![No tracking](https://img.shields.io/badge/tracking-none-4FE0A2)
 ![Windows · Mac · Linux](https://img.shields.io/badge/Windows%20·%20Mac%20·%20Linux-supported-C79BFF)
-
-<br>
-
-<img src="https://maherimtiyaz.github.io/islet-site/islet.gif" alt="An island drops in at the top of a browser tab: a GitHub review request, then a Slack mention, a Gmail message and a passing CI run, one after another" width="800">
 
 </div>
 
@@ -54,16 +49,20 @@ Islet gives them **one quiet place to speak, one at a time.** A notification dro
 
 One message from the wrong group chat is all it takes. While you share your screen, Islet keeps the text to itself.
 
-<div align="center">
-<img src="https://maherimtiyaz.github.io/islet-site/privacy.gif" alt="While presenting, a WhatsApp message arrives and the island shows 'Text hidden while you share your screen'" width="720">
-<br><sub><a href="https://maherimtiyaz.github.io/islet-site/privacy-mode.mp4">Watch the full 25-second clip</a></sub>
-</div>
+> ▶ **See it happen** in the [1-minute demo](https://maherimtiyaz.github.io/islet-site/#demo): a message arrives mid-presentation and the text stays hidden.
 
 ### 🎨 Six looks
 
-<div align="center">
-<img src="https://maherimtiyaz.github.io/islet-site/looks.png" alt="The six Islet looks: Minimal, Classic, Terminal, Editor, Paper and Neon" width="800">
-</div>
+| Look | Feels like |
+|---|---|
+| **Minimal** | One line, a small dot, nothing extra (the default) |
+| **Classic** | Icon in a circle, countdown ring, a soft glow and sparks |
+| **Terminal** | Monospace, `OK` / `WARN` tags, the title types itself out with a blinking cursor |
+| **Editor** | Code-editor dark, mono text, rounded badges |
+| **Paper** | Light and soft |
+| **Neon** | Gradient glow, bright colors |
+
+Then fine-tune the island color, each kind's color, icon style, badge, shape, size, position, countdown, effects and sound. [See them all on the website](https://maherimtiyaz.github.io/islet-site/#looks).
 
 ## 🚀 Install
 
@@ -91,9 +90,6 @@ Open Islet → **Sources**. Every source is off until you switch it on.
 
 When you switch a source on, Islet shows **one summary** ("4 unread on GitHub") instead of a flood, then an island for each new item.
 
-<div align="center">
-<img src="https://maherimtiyaz.github.io/islet-site/sources.png" alt="The Sources tab with GitHub and Gmail on, next to an island for each source" width="800">
-</div>
 
 ## 🔒 Privacy
 
